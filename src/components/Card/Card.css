@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css?family=Wendy+One');
+
+.flexbox {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.card {
+  margin: 1.58rem;
+  width: 20%;
+  border: 1px solid #3c4949;
+  border-radius: .5rem;
+  background-color: aquamarine;
+  box-shadow: 10px 10px .5rem #5e5e5e;
+}
+
+.card img {
+  width: 150px;
+}
+
+.card h3 {
+  font-family: 'Wendy One', sans-serif;
+  font-size: 1.2em;
+  color: #5e5e5e;
+}
+
+.card p {
+  font-family: 'Courier New', sans-serif;
+  font-size: .8em;
+  text-transform: lowercase;
+}

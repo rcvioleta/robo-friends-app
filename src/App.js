@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
+
 import './App.css';
+import Navigation from './components/Navigation/Navigation';
+import Card from './components/Card/Card';
 
 const App = props => {
   const [fetchedRobots, setFetchedRobots] = useState(null);
-  const [searchField, setSearchField] = useState(null)
+  const [searchField, setSearchField] = useState(null);
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/users')
@@ -11,12 +14,6 @@ const App = props => {
     .then(data => setFetchedRobots(data))
     .catch(err => console.log(err))
   }, []);
-
-  // useEffect(() => {
-  //   return () => {
-  //     console.log('searching...', searchField);
-  //   }
-  // }, [searchField]);
 
   const searchHandler = event => {
     console.log('event triggered', event.target.value);
@@ -26,32 +23,19 @@ const App = props => {
   let robots = null
 
   if (fetchedRobots && !searchField) {
-    robots = fetchedRobots.map(robot => (
-      <div key={robot.id}>
-        <h3>{robot.name}</h3>
-        <p>{robot.email}</p>
-        <p>{robot.phone}</p>
-      </div>  
-    ));
+    robots = <Card robots={fetchedRobots} />
   } else if (searchField) {
     const filteredRobots = fetchedRobots.filter(robot => {
       return robot.name.toLowerCase().includes(searchField.toLowerCase());
     });
-    robots = filteredRobots.map(robot => (
-      <div key={robot.id}>
-        <h3>{robot.name}</h3>
-        <p>{robot.email}</p>
-        <p>{robot.phone}</p>
-      </div>  
-    ));
+    robots = <Card robots={filteredRobots} />
+  } else {
+    robots = <h4>Fetching robo friends...</h4>
   }
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>RoboFriendsApp</h1>
-        <input type="text" placeholder="Search your robo friend" onChange={searchHandler}/>
-      </header>
+      <Navigation searchHandler={searchHandler}/>
       <main>
         { robots }
       </main>

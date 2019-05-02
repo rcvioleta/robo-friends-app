@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Wendy+One');
+
+.app-nav {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'Wendy One', sans-serif;
+  background: linear-gradient(to right, #03bbbb, #097979);
+  border-bottom: 5px solid #097979;
+}
+
+.app-nav h1 {
+  padding: 2rem 0;
+  margin: 0;
+  font-size: 4em;
+  text-shadow: 5px 0 .1rem #a6bdbd;
+  color: #3c4949;
+}
+
+.app-nav input[type="text"] {
+  padding: .7rem;
+  width: 30%;
+  margin: 0 auto 2rem auto;
+  font-family: inherit;
+  font-size: 1.5em;
+  box-sizing: border-box;
+  color: #3c4949;
+}
